@@ -7,17 +7,12 @@ const randomDamage = () => {
 // console.log(randomDamage());
 
 const chooseOption = (opt1, opt2) => {
-  let randNum = Math.floor(Math.random() * 2);
-  //if (randNum === 0) {
-  //  return opt1;
-  //} else {
-  // return opt2;
-  //}
+  let randNum = Math.round(Math.random());
   return randNum === 0 ? opt1 : opt2;
 };
 
 const attackPlayer = function (health) {
-  return health - randomDamage;
+  return health - randomDamage();
 };
 
 const logHealth = (player, health) => {
@@ -31,6 +26,8 @@ const logDeath = (winner, loser) => {
 const isDead = (health) => {
   return health <= 0;
 };
+
+// could also write as const isDead =(health) => health <= 0;
 
 function fight(player1, player2, player1Health, player2Health) {
   while (true) {
